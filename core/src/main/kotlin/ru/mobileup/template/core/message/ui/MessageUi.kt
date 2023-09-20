@@ -3,11 +3,20 @@ package ru.mobileup.template.core.message.ui
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,7 +43,8 @@ fun MessageUi(
     }
     Box(modifier = modifier.fillMaxSize()) {
         visibleMessage?.let {
-            val inverseIsDarkTheme = MaterialTheme.colors.isLight
+            // FIXME: костыль, придумать замену
+            val inverseIsDarkTheme = MaterialTheme.colorScheme.background.luminance() > 0.5f
             AppTheme(inverseIsDarkTheme) {
                 MessagePopup(
                     message = it,
@@ -61,8 +71,18 @@ private fun MessagePopup(
     ) {
         Card(
             shape = RoundedCornerShape(8.dp),
-            backgroundColor = MaterialTheme.colors.background,
-            elevation = 3.dp,
+            colors = CardDefaults
+                .cardColors(
+                    containerColor = MaterialTheme.colorScheme.background
+                ),
+            elevation = CardDefaults.cardElevation(
+                defaultElevation = 3.dp,
+                pressedElevation = 3.dp,
+                focusedElevation = 3.dp,
+                hoveredElevation = 3.dp,
+                draggedElevation = 3.dp,
+                disabledElevation = 3.dp
+            ),
             modifier = Modifier
                 .padding(bottom = bottomPadding, start = 8.dp, end = 8.dp)
                 .wrapContentSize()
@@ -78,14 +98,14 @@ private fun MessagePopup(
                     Icon(
                         painter = painterResource(it),
                         contentDescription = null,
-                        tint = MaterialTheme.colors.primary
+                        tint = MaterialTheme.colorScheme.primary
                     )
                 }
                 Text(
                     modifier = Modifier.weight(1f),
                     text = message.text.localized(),
-                    color = MaterialTheme.colors.onBackground,
-                    style = MaterialTheme.typography.body1
+                    color = MaterialTheme.colorScheme.onBackground,
+                    style = MaterialTheme.typography.bodyLarge
                 )
                 message.actionTitle?.let {
                     MessageButton(text = it.localized(), onClick = onAction)
@@ -107,7 +127,7 @@ private fun MessageButton(
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.body2
+            style = MaterialTheme.typography.bodySmall
         )
     }
 }

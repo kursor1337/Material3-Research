@@ -8,6 +8,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -24,13 +29,12 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import ru.mobileup.template.core.theme.AppTheme
 import ru.mobileup.template.core.utils.dispatchOnBackPressed
-import ru.mobileup.template.core.widget.PullRefreshLceWidget
 import ru.mobileup.template.core.widget.RefreshingProgress
+import ru.mobileup.template.core.widget.SwipeRefreshLceWidget
 import ru.mobileup.template.features.R
 import ru.mobileup.template.features.pokemons.domain.DetailedPokemon
 import ru.mobileup.template.features.pokemons.ui.list.PokemonTypeItem
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun PokemonDetailsUi(
     component: PokemonDetailsComponent,
@@ -41,7 +45,7 @@ fun PokemonDetailsUi(
 
     Surface(
         modifier = modifier.fillMaxSize(),
-        color = MaterialTheme.colors.background
+        color = MaterialTheme.colorScheme.background
     ) {
         Column(modifier = modifier.fillMaxSize()) {
             IconButton(
@@ -50,7 +54,7 @@ fun PokemonDetailsUi(
                 Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
             }
 
-            PullRefreshLceWidget(
+            SwipeRefreshLceWidget(
                 state = pokemonState,
                 onRefresh = component::onRefresh,
                 onRetryClick = component::onRetryClick
@@ -77,7 +81,7 @@ private fun PokemonDetailsContent(
         Text(
             textAlign = TextAlign.Center,
             text = pokemon.name,
-            style = MaterialTheme.typography.h5
+            style = MaterialTheme.typography.headlineSmall
         )
 
         AsyncImage(
@@ -91,7 +95,7 @@ private fun PokemonDetailsContent(
                 .padding(top = 32.dp)
                 .size(200.dp)
                 .clip(CircleShape)
-                .background(color = MaterialTheme.colors.surface)
+                .background(color = MaterialTheme.colorScheme.surface)
         )
 
         Text(

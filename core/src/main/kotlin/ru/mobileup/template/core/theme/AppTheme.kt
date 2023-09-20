@@ -1,15 +1,15 @@
 package ru.mobileup.template.core.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-private val LightColorPalette = lightColors(
+private val LightColorPalette = lightColorScheme(
     primary = IndigoA700,
-    primaryVariant = IndigoA700,
-    secondary = Teal200
+    secondary = IndigoA700,
+    tertiary = Teal200
 
     /* Other default colors to override
     background = Color.White,
@@ -21,10 +21,10 @@ private val LightColorPalette = lightColors(
     */
 )
 
-private val DarkColorPalette = darkColors(
+private val DarkColorPalette = darkColorScheme(
     primary = Indigo400,
-    primaryVariant = Indigo400,
-    secondary = TealA400
+    secondary = Indigo400,
+    tertiary = TealA400
 )
 
 @Composable
@@ -39,7 +39,7 @@ fun AppTheme(
     }
 
     MaterialTheme(
-        colors = colors,
+        colorScheme = colors,
         typography = Typography,
         shapes = Shapes,
         content = content
