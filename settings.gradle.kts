@@ -98,6 +98,10 @@ dependencyResolutionManagement {
                 )
             )
 
+            // Form validation
+            val formValidationVersion = "1.0.0-alpha1"
+            library("forms", "ru.mobileup", "kmm-form-validation").version(formValidationVersion)
+
             // DI
             val koinVersion = "3.5.0"
             library("koin", "io.insert-koin:koin-core:$koinVersion")

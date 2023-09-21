@@ -47,6 +47,9 @@ android {
 dependencies {
     ksp(libs.ktorfit.ksp)
 
+    // Form Validation
+    implementation(libs.forms)
+
     // Kotlin
     implementation(libs.kotlinx.datetime)
     implementation(libs.coroutines.core)
