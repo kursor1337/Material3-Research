@@ -36,7 +36,7 @@ private fun animateAlignmentAsState(
 }
 
 @Composable
-fun FlSwitch(
+fun Switch(
     checked: Boolean = true,
     isEnabled: Boolean = true,
     modifier: Modifier = Modifier,
@@ -125,7 +125,7 @@ private fun CustomSwitch(
 @Composable
 fun MainSwitchCheckedPreview() {
     AppTheme {
-        FlSwitch(checked = true)
+        Switch(checked = true)
     }
 }
 
@@ -133,6 +133,6 @@ fun MainSwitchCheckedPreview() {
 @Composable
 fun MainSwitchUnCheckedPreview() {
     AppTheme {
-        FlSwitch(checked = false)
+        Switch(checked = false)
     }
 }

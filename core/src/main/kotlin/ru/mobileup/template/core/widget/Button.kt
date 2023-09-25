@@ -59,7 +59,7 @@ import ru.mobileup.template.core.theme.custom.CustomTheme
 private val defaultBorderColor = Color.Transparent
 
 @Composable
-fun FlPrimaryButton(
+fun PrimaryButton(
     text: String,
     modifier: Modifier = Modifier,
     borderColor: Color = CustomTheme.colors.border.active(),
@@ -81,7 +81,7 @@ fun FlPrimaryButton(
 ) = Box(
     modifier = modifier.heightIn(0.dp, height)
 ) {
-    FlContainedButton(
+    ContainedButton(
         text = if (isProgress) "" else text,
         onClick = if (isProgress) {
             {}
@@ -118,7 +118,7 @@ private fun BoxScope.InfinityProgress(color: Color) {
 }
 
 @Composable
-fun FlTextButton(
+fun TextButton(
     text: String,
     modifier: Modifier = Modifier,
     shape: Shape = RoundedCornerShape(16.dp),
@@ -162,7 +162,7 @@ fun FlTextButton(
 }
 
 @Composable
-fun FlSmallButton(
+fun SmallButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -184,7 +184,7 @@ fun FlSmallButton(
 }
 
 @Composable
-fun FlContainedButton(
+fun ContainedButton(
     modifier: Modifier = Modifier,
     text: String,
     onClick: () -> Unit,
@@ -326,16 +326,16 @@ private fun DefaultButtonContent(
     }
 }
 
-@Preview("FlTextButtonFocusPreview", showBackground = true)
+@Preview("TextButtonFocusPreview", showBackground = true)
 @Composable
-fun FlTextButtonFocusPreview() {
+fun TextButtonFocusPreview() {
     AppTheme {
         val focusRequester = remember { FocusRequester() }
         LaunchedEffect(Unit) {
             delay(100)
             focusRequester.requestFocus()
         }
-        FlTextButton(
+        TextButton(
             text = "Text button",
             onClick = {},
             focusRequester = focusRequester
@@ -343,23 +343,23 @@ fun FlTextButtonFocusPreview() {
     }
 }
 
-@Preview("FlTextButtonPreview", showBackground = true)
+@Preview("TextButtonPreview", showBackground = true)
 @Composable
-fun FlTextButtonPreview() {
+fun TextButtonPreview() {
     AppTheme {
-        FlTextButton(
+        TextButton(
             text = "Text button",
             onClick = {}
         )
     }
 }
 
-@Preview("FlPrimaryButtonPreview", showBackground = true)
+@Preview("PrimaryButtonPreview", showBackground = true)
 @Composable
-fun FlPrimaryButtonPreview() {
+fun PrimaryButtonPreview() {
     AppTheme {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            FlPrimaryButton(
+            PrimaryButton(
                 modifier = Modifier.weight(1f),
                 text = "Lorem ipsum is a placeholder text commonly used to demonstrate",
                 onClick = {},
@@ -378,7 +378,7 @@ fun FlPrimaryButtonPreview() {
                     )
                 }
             )
-            FlPrimaryButton(
+            PrimaryButton(
                 modifier = Modifier.weight(1f),
                 text = "Lorem ipsum is a placeholder text commonly used to demonstrate",
                 onClick = {},
@@ -394,16 +394,16 @@ fun FlPrimaryButtonPreview() {
     }
 }
 
-@Preview("FlPrimaryButtonFocusPreview", showBackground = true)
+@Preview("PrimaryButtonFocusPreview", showBackground = true)
 @Composable
-fun FlPrimaryButtonFocusPreview() {
+fun PrimaryButtonFocusPreview() {
     AppTheme {
         val focusRequester = remember { FocusRequester() }
         LaunchedEffect(Unit) {
             delay(100)
             focusRequester.requestFocus()
         }
-        FlPrimaryButton(
+        PrimaryButton(
             text = "Primary text",
             onClick = {},
             focusRequester = focusRequester,
@@ -411,11 +411,11 @@ fun FlPrimaryButtonFocusPreview() {
     }
 }
 
-@Preview("FlPrimaryButtonDisalePreview", showBackground = true)
+@Preview("PrimaryButtonDisalePreview", showBackground = true)
 @Composable
-fun FlPrimaryButtonDisablePreview() {
+fun PrimaryButtonDisablePreview() {
     AppTheme {
-        FlPrimaryButton(
+        PrimaryButton(
             text = "Primary text",
             onClick = {},
             isEnabled = false,
@@ -423,11 +423,11 @@ fun FlPrimaryButtonDisablePreview() {
     }
 }
 
-@Preview("FlPrimaryProgressButtonPreview", showBackground = true)
+@Preview("PrimaryProgressButtonPreview", showBackground = true)
 @Composable
-fun FlPrimaryProgressButtonPreview() {
+fun PrimaryProgressButtonPreview() {
     AppTheme {
-        FlPrimaryButton(
+        PrimaryButton(
             text = "Primary text",
             onClick = {},
             isProgress = true,

@@ -132,7 +132,7 @@ private fun BasicBorderTextField(
 }
 
 @Composable
-fun FlOutlinedTextField(
+fun OutlinedTextField(
     modifier: Modifier = Modifier,
     value: String,
     onClick: () -> Unit = {},
@@ -277,7 +277,7 @@ fun FlOutlinedTextField(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun FlOutlinedTextField(
+fun OutlinedTextField(
     inputControl: InputControl,
     modifier: Modifier = Modifier,
     placeholder: String? = null,
@@ -333,7 +333,7 @@ fun FlOutlinedTextField(
             )
         }
 
-        FlOutlinedTextField(
+        OutlinedTextField(
             value = text,
             shape = shape,
             onClick = onClick,
@@ -404,11 +404,11 @@ private val NullableTextRangeSaver = listSaver<TextRange?, Int>(
 
 @Preview(showBackground = true)
 @Composable
-fun FlOutlinedTextFieldPreview() {
+fun OutlinedTextFieldPreview() {
     val inputControl = InputControl(CoroutineScope(Dispatchers.Main))
 
     AppTheme {
-        FlOutlinedTextField(
+        OutlinedTextField(
             inputControl = inputControl,
             placeholder = "Placeholder",
             footerText = "Footer text",
@@ -435,13 +435,13 @@ fun FlOutlinedTextFieldPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun FlOutlinedTextFieldFocusPreview() {
+fun OutlinedTextFieldFocusPreview() {
     val inputControl = InputControl(CoroutineScope(Dispatchers.Main)).apply {
         requestFocus()
     }
 
     AppTheme {
-        FlOutlinedTextField(
+        OutlinedTextField(
             inputControl = inputControl,
             placeholder = "Placeholder",
         )

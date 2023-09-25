@@ -27,6 +27,7 @@ import androidx.compose.ui.window.PopupProperties
 import dev.icerock.moko.resources.compose.localized
 import ru.mobileup.template.core.message.domain.Message
 import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.theme.custom.CustomTheme
 
 /**
  * Displays a [Message] as a popup at the bottom of screen.
@@ -43,8 +44,8 @@ fun MessageUi(
     }
     Box(modifier = modifier.fillMaxSize()) {
         visibleMessage?.let {
-            // FIXME: костыль, придумать замену
-            val inverseIsDarkTheme = MaterialTheme.colorScheme.background.luminance() > 0.5f
+            // FIXME: все равно костыль, придумать замену
+            val inverseIsDarkTheme = CustomTheme.colors.isLight
             AppTheme(inverseIsDarkTheme) {
                 MessagePopup(
                     message = it,

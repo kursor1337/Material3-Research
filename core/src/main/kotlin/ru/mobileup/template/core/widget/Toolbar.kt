@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,7 +29,7 @@ import ru.mobileup.template.core.utils.dispatchOnBackPressed
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FlToolbar(
+fun Toolbar(
     modifier: Modifier = Modifier,
     content: @Composable (() -> Unit)? = null,
     title: String? = null,
@@ -36,6 +37,7 @@ fun FlToolbar(
     navigationIcon: @Composable (() -> Unit)? = { BackButton() },
     actionIcon: @Composable (() -> Unit)? = null,
     overlay: @Composable (BoxScope.() -> Unit)? = null,
+    scrollBehavior: TopAppBarScrollBehavior? = null,
     backgroundColor: Color = CustomTheme.colors.background.screen(),
     contentColor: Color = CustomTheme.colors.text.primary.default(),
 ) = Box(modifier = modifier) {
@@ -69,7 +71,8 @@ fun FlToolbar(
             navigationIconContentColor = contentColor,
             actionIconContentColor = contentColor,
             titleContentColor = contentColor,
-        )
+        ),
+        scrollBehavior = scrollBehavior
     )
 
     overlay?.invoke(this)
@@ -132,11 +135,12 @@ fun ActionButton(
     }
 }
 
-@Preview("FlToolbarPreview", showBackground = true)
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview("ToolbarPreview", showBackground = true)
 @Composable
-fun FlToolbarPreview() {
+fun ToolbarPreview() {
     AppTheme {
-        FlToolbar(
+        Toolbar(
             title = "Hello",
             navigationIcon = { CloseButton() },
             actionIcon = {

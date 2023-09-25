@@ -56,6 +56,9 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
 
+    // Forms
+    implementation(libs.forms)
+
     // UI
     implementation(libs.bundles.compose)
     implementation(libs.bundles.accompanist)
