@@ -25,7 +25,9 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ru.mobileup.kmm_form_validation.control.InputControl
 import ru.mobileup.template.core.message.ui.MessageUi
 import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.widget.BottomBar
 import ru.mobileup.template.core.widget.OutlinedTextField
+import ru.mobileup.template.core.widget.Page
 import ru.mobileup.template.core.widget.PrimaryButton
 import ru.mobileup.template.core.widget.TextButton
 import ru.mobileup.template.core.widget.Toolbar
@@ -69,6 +71,9 @@ fun Material3WidgetsUi() {
                     title = "Toolbar",
                     scrollBehavior = scrollBehavior
                 )
+            },
+            bottomBar = {
+                BottomBar(currentPage = Page.Main, elevated = true, onPageSelected = {})
             },
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
         ) { paddingValues ->

@@ -9,4 +9,10 @@
     <string name="error_invalid_response">Server error. Please try again later.</string>
     <string name="error_no_server_response">Failed to connect to the server. Please try again later.</string>
     <string name="error_matching_application_not_found">No applications found to perform the action.</string>
+
+    <string name="nav_bar_item_1">Nav bar item 1</string>
+    <string name="nav_bar_item_2">Nav bar item 2</string>
+    <string name="nav_bar_item_3">Nav bar item 3</string>
+    <string name="nav_bar_item_4">Nav bar item 4</string>
+    <string name="nav_bar_item_5">Nav bar item 5</string>
 </resources>
